@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-app: #090a0f;
+    --bg-sidebar: #0f1016;
+    --bg-surface: #14151d;
+    --bg-surface-elevated: #1a1c26;
+    --bg-surface-active: #222432;
+    
+    --border-dim: rgba(255, 255, 255, 0.06);
+    --border-medium: rgba(255, 255, 255, 0.12);
+    --border-highlight: rgba(255, 255, 255, 0.2);
+    
+    --accent-primary: #8b5cf6;
+    --accent-primary-hover: #7c3aed;
+    --accent-glow: rgba(139, 92, 246, 0.25);
+    
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body, #root {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    user-select: none;
+  }
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Electron Window Controls Drag Regions */
+.titlebar-drag {
+  -webkit-app-region: drag;
+}
+.titlebar-no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/* Page Paper Shadows & Glows */
+.paper-shadow {
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 8px 24px -4px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.paper-shadow-hover {
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.5),
+    0 16px 36px -6px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.18),
+    0 0 20px rgba(139, 92, 246, 0.15);
+}
+
+.paper-shadow-selected {
+  box-shadow: 
+    0 0 0 2px #8b5cf6,
+    0 8px 28px -4px rgba(139, 92, 246, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+/* Shimmer animation */
+@keyframes subtle-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+.animate-subtle-pulse {
+  animation: subtle-pulse 3s infinite ease-in-out;
+}
